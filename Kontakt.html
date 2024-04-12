@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Kontakt</title>
+  <style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    textarea {
+        height: 150px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        background-color: #555;
+    }
+
+    .error {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<form id="contact-form" action="mailto:e-mail" method="post" enctype="text/plain">
+  <h1>Kontakt</h1>
+  <div>
+    <label for="imie">Imię:</label>
+    <input type="text" id="imie" name="imie" required>
+  </div>
+  <div>
+    <label for="nazwisko">Nazwisko:</label>
+    <input type="text" id="nazwisko" name="nazwisko" required>
+  </div>
+  <div>
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" required>
+    <div id="email-error" class="error"></div>
+  </div>
+  <div>
+    <label for="wiadomosc">Twoja wiadomość:</label>
+    <textarea id="wiadomosc" name="wiadomosc" cols="50" rows="10" required>Proszę, wpisz tutaj treść wiadomości...</textarea>
+  </div>
+  <div>
+    <input type="submit" value="Wyślij wiadomość">
+    <input type="reset" value="Wyczyść dane">
+  </div>
+</form>
+
+<script>
+
+  function validateEmail(email) {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return regex.test(email);
+  }
+
+  const form = document.getElementById('contact-form');
+  const emailInput = document.getElementById('email');
+  const emailError = document.getElementById('email-error');
+
+  form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const email = emailInput.value;
+
+      if (!validateEmail(email)) {
+          emailError.textContent = 'Podaj poprawny adres e-mail.';
+      } else {
+          alert('Formularz został wysłany!');
+          form.reset();
+      }
+  });
+
+
+  emailInput.addEventListener('input', function() {
+      emailError.textContent = '';
+  });
+</script>
+
+</body>
+</html>

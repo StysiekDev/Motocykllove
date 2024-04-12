@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Galeria</title>
+  <style>
+
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+
+    .gallery-title {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        margin: 0;
+    }
+
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        justify-items: center;
+        background-color: #f4f4f4;
+        border-radius: 10px;
+    }
+
+
+    .gallery-item {
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+
+    .caption {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 5px 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        font-size: 14px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+
+    .gallery-item:hover .caption {
+        opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<h1 class="gallery-title">Galeria zdjęć z targów motocyklowych</h1>
+
+<div class="gallery">
+  <div class="gallery-item">
+    <img src="IMG_20240316_123717.jpg" alt="Kawasaki Ninja wersja do stuntu">
+    <div class="caption">Kawasaki Ninja wersja do stuntu</div>
+  </div>
+  <div class="gallery-item">
+    <img src="IMG_20230914_173226.jpg" alt="Yamaha Fazer 600">
+    <div class="caption">Yamaha Fazer 600</div>
+  </div>
+  <div class="gallery-item">
+    <img src="IMG_20240316_122753.jpg" alt="Honda Africa Twin">
+    <div class="caption">Honda Africa Twin</div>
+  </div>
+  <div class="gallery-item">
+    <img src="IMG_20230318_140204.jpg" alt="Jack & Dog">
+    <div class="caption">Jack & Dog</div>
+  </div>
+  <div class="gallery-item">
+    <img src="FB_IMG_1712889196604.jpg" alt="Targi motocyklowe Warszawa">
+    <div class="caption">Targi motocyklowe Warszawa</div>
+  </div>
+  <div class="gallery-item">
+    <img src="IMG_20240316_214332.jpg" alt="Honda CBR 2024">
+    <div class="caption">Honda CBR 2024</div>
+  </div>
+  <div class="gallery-item">
+    <img src="IMG_20240316_214220.jpg" alt="Ducati Penigale v4">
+    <div class="caption">Ducati Penigale v4</div>
+  </div>
+
+  <div class="gallery-item">
+    <img src="IMG_20240316_214520.jpg" alt="Motocykl elektryczny AGH">
+    <div class="caption">Motocykl eletryczny AGH</div>
+  </div>
+</div>
+
+</body>
+</html>
